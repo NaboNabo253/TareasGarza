@@ -1,8 +1,8 @@
 def operation_selector(num1, num2, op):
     # Definir los códigos de error
-    Error_Numero_Invalido = 1
-    Error_No_String = 2
-    Error_Operador_Invalido = 3
+    Error_Numero_Invalido = -50
+    Error_No_String = -60
+    Error_Operador_Invalido = -70
     Exito = 0
 
     # Verificar si num1 y num2 son enteros
@@ -33,12 +33,12 @@ def operation_selector(num1, num2, op):
 def calculo_promedio(lista_valores):
     # Verificar si la lista tiene más de 10 elementos
     if len(lista_valores) > 10:
-        return (1, None)  # Código de error 1: Lista demasiado grande
+        return (-90, None)  # Código de error 1: Lista demasiado grande
 
     # Verificar si todos los valores en la lista son números
     for i in lista_valores:
         if isinstance(i, (int, float)) == False:
-            return (2, None)  # Código de error 2: No todos los valores son números
+            return (-80, None)  # Código de error 2: No todos los valores son números
 
     # Calcular el promedio si todas las validaciones son exitosas
     promedio = sum(lista_valores) / len(lista_valores)
