@@ -1,4 +1,4 @@
-import Tarea1
+import tarea_1_example_solution
 import random
 import string
 
