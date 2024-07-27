@@ -5,8 +5,8 @@ def operation_selector(num1, num2, op):
     Error_Operador_Invalido = -70
     Exito = 0
 
-    # Verificar si num1 y num2 son enteros
-    if not isinstance(num1, int) or not isinstance(num2, int):
+    # Verificar si num1 y num2 son enteros y ademas que no sean booleanos, ya que confunde booleanos con 1 y 0
+    if (not isinstance(num1, int) or isinstance(num1, bool)) or (not isinstance(num2, int) or isinstance(num2, bool)):
         return (Error_Numero_Invalido, None)
 
     # Verificar si op es un string
@@ -37,10 +37,9 @@ def calculo_promedio(lista_valores):
 
     # Verificar si todos los valores en la lista son números
     for i in lista_valores:
-        if isinstance(i, (int, float)) == False:
-            return (-80, None)  # Código de error 2: No todos los valores son números
+        if (not isinstance(i, (int, float)) or isinstance(i, bool)):
+            return (-80, None)  # Código de error 2: No todos los valores son números, tambien revisa caso de bool
 
     # Calcular el promedio si todas las validaciones son exitosas
     promedio = sum(lista_valores) / len(lista_valores)
     return (0, promedio)  # Código de éxito 0
-
